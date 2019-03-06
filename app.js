@@ -9,7 +9,7 @@ document.querySelector('#register').addEventListener('click', function() {
   if (firstName.length >=2 && firstName.length <=25) {
     alert('Name accepted');
   } else {
-    alert('Name too long');
+    alert('Name is too long');
   }
   
   if (typeof lastName == 'string') {
