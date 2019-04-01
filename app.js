@@ -1,81 +1,57 @@
+//VALIDATION ON SUBMIT
 
-
-//Creating User object 
-function User(name, lastname, email) {
-  this.name = name;
-  this.lastName = lastname;
-  this.email = email;
-  this.printName = function() {
-    console.log(name)
-  }
-}
-
-var newUser = new User("test", "test1", "test2")
-
-//Function to validate names
-function validateNames (inputElem, errorElem) {
-
-  if (inputElem.value.length >=2 && inputElem.value.length <=25) {
-    inputElem.classList.add('validated');
-    errorElem.classList.remove('active');
-  } else {
-    inputElem.classList.remove('validated');
-    errorElem.classList.add('active');
-  }
-  checkAll() 
-}
-
-//Function to check if all input fields are fielled in 
-function checkAll() {
-  if(document.querySelectorAll('.validated').length == 3){
-    document.querySelector('#register').disabled = false;
-  } else {
-    document.querySelector('#register').disabled = true;
-  }
-}
-
-
-document.querySelector('#firstName').addEventListener('keyup', function() {
+  //Input fields locators
   let firstName = document.querySelector('#firstName');
-  let errorName = document.querySelector('.firstname-error');
- 
-  validateNames(firstName, errorName)
-
-});
-
-document.querySelector('#lastName').addEventListener('keyup', function() {
-  
   let lastName = document.querySelector('#lastName');
-  let errorName = document.querySelector('.lastname-error');
-
-  validateNames(lastName, errorName)
-
-});
-
-//Function to validate email
-document.querySelector('#email').addEventListener('keyup', function() {
-  let email = document.querySelector('#email').value;
-  let emailName = email.split('@')[0];
-  let emailDomain = email.split('@')[1];
-  if (email.indexOf("@") > -1 && emailDomain.indexOf(".")> -1 && emailName.length > 0) {
-    this.classList.add('validated');
-    document.querySelector('.email-error').classList.remove('active')
-  } else {
-    this.classList.remove('validated');
-    document.querySelector('.email-error').classList.add('active')
-
   
+  
+  //Input field errors locators
+  let errorLastName = document.querySelector('.lastname-error')
+  let errorFirstName = document.querySelector('.firstname-error')
+  let errorMail = document.querySelector('.email-error')
+  
+//Function to validate last and first name input fields 
+function validateNames (inputElem, errorElem) {
+  if (inputElem.value.length >=2 && inputElem.value.length <= 25) {
+       inputElem.classList.add('validated');
+       errorElem.classList.remove('active');    
+  } else {
+       inputElem.classList.remove('validated');
+       errorElem.classList.add('active');
+  }}
+ 
+  //Function to validate email input field 
+  function validateEmail (errorElem) {
+
+  let email = document.querySelector('#email')
+  let emailName = email.value.split('@')[0];
+  let emailDomain = email.value.split('@')[1];
+
+    if (email.value.indexOf("@") > -1 && emailDomain.indexOf(".") > -1 && emailName.length > 0) {
+         
+          email.classList.add('validated');
+          errorElem.classList.remove('active')
+        } else {
+          email.classList.remove('validated');
+          errorElem.classList.add('active')
+    }}
+
+  function checkAll() {
+    if(document.querySelectorAll('.validated').length == 3){
+    return true;
+  } else {
+    return false;
   }
-  checkAll() 
-
-});
-
-document.querySelector('#register').addEventListener('click', function() {
-  let firstName = document.querySelector('#firstName').value;
-  let lastName = document.querySelector('#lastName').value;
-  let email = document.querySelector('#email').value
-  let newUser = new User(firstName, lastName, email);
-  console.log(newUser)
-
-} )
-
+}
+  //Adding event on submitting form
+  function checkForm () {
+      validateNames(lastName, errorLastName)
+      console.log("last name validated")
+      validateNames(firstName, errorFirstName)
+      console.log("first name validated")
+      validateEmail(errorMail)
+      console.log("email validated")
+      checkAll()
+      console.log("checked all")
+      console.log(checkAll())
+     } 
