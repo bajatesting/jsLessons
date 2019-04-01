@@ -1,3 +1,14 @@
 label:hover {
   cursor: pointer;
 }
+
+.error {
+  display: none; 
+  font-size:12px;
+  color: red; 
+  margin-bottom: 0;
+}
+
+.error.active {
+  display: block; 
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link href="style.css"/>
+  <link href="style.css" rel="stylesheet"/>
   <title>JS Bin</title>
 </head>
 
@@ -11,28 +11,42 @@
 
   <h1>Rejestracja</h1>
   
-  <form action="#">
-    <div>
-      <label for="firstName">Imie</label><br>
-      <input id="firstName" type="text">
-      <br><br>
-    </div>
+  <form action="#" >
+   
 
     <div>
-      <label for="lastName">Nazwisko</label><br>
+      <label form="lastName">Nazwisko</label><br>
       <input id="lastName" type="text">
-      <br><br>
+      <br>
+
+      <p class="error lastname-error">Niepoprawna wartość nazwiska</p>
+      
+      <br>
     </div>
 
     <div>
-      <label for="email">Email</label><br>
+      <label form="firtName">Imię</label><br>
+      <input id="firstName" type="text">
+      <br>
+      <p class="error firstname-error">Niepoprawna wartość imienia</p>
+     
+      
+      <br>
+    </div>
+
+    <div>
+      <label form="email">Email</label><br>
       <input id="email" type="text">
-      <br><br>
+      <br>
+      <p class="error email-error">Niepoprawny email</p>
+      <br>
     </div>
 
     <div>
-      <button id="register" type="submit">Rejestruj</button>
+      <button id="register" type="submit" >Rejestruj</button>
     </div>
+
+  
   </form>
 <script src="app.js"></script>
 </body>
