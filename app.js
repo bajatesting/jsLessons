@@ -1,4 +1,20 @@
 
+//ADDING NEW ELEMENT - TODO 
+
+// function addElement () {
+
+// const lastDiv = document.createElement('div');
+// lastDiv.className = 'lastDiv'
+// document.querySelector('form').insertBefore(lastDiv, )
+// const dob = document.createElement('input');
+// dob.id = 'dateOfBirth'
+// dob.setAttribute('type', 'text');
+// const textNode = document.createTextNode('Data urodzenia');
+// dob.appendChild(textNode);
+// document.querySelector('div.lastDiv').appendChild(dob); }
+
+//
+
 
 //Creating User object 
 function User(name, lastname, email) {
